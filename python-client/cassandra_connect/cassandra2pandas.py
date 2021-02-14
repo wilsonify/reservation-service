@@ -7,8 +7,6 @@ CASSANDRA_USER = "reservation_service"
 CASSANDRA_PASS = "i6XJsj!k#9"
 CASSANDRA_HOST = "localhost"
 CASSANDRA_PORT = "9042"
-CASSANDRA_KEYSPACE = "reservation"
-CASSANDRA_TABLE = "reservations_by_confirmation"
 
 auth_provider = PlainTextAuthProvider(
     username=CASSANDRA_USER,
@@ -27,7 +25,7 @@ def pandas_factory(colnames, rows):
 
 def read_keyspace_table(ks, tb):
     query = f"SELECT * FROM {ks}.{tb};"
-    with cluster.connect(CASSANDRA_KEYSPACE) as session:
+    with cluster.connect(ks) as session:
         session.default_fetch_size = None
         session.row_factory = pandas_factory
         rslt = session.execute(query, timeout=None)
@@ -36,7 +34,7 @@ def read_keyspace_table(ks, tb):
 
 
 def main():
-    df = read_keyspace_table(CASSANDRA_KEYSPACE, CASSANDRA_TABLE)
+    df = read_keyspace_table("reservation", "reservations_by_confirmation")
     print(f"df.shape={df.shape}")
     df.to_csv("example.csv", index=False)
 

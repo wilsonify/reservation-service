@@ -12,12 +12,13 @@ def main():
         'com.datastax.spark:spark-cassandra-connector_2.11:2.3.2'
     ).getOrCreate()
 
-    spark.read.format(
+    df = spark.read.format(
         "org.apache.spark.sql.cassandra"
     ).option(
-        keyspace="ksname",
-        table="tab"
+        keyspace="reservation",
+        table="reservations_by_confirmation"
     ).load()
+    print(f"df.shape={df.shape}")
 
 
 if __name__ == "__main__":
