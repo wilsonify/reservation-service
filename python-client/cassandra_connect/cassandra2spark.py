@@ -1,6 +1,4 @@
-import time
 import findspark
-import pandas as pd
 from pyspark.sql import SparkSession
 
 
@@ -18,7 +16,8 @@ def main():
         keyspace="reservation",
         table="reservations_by_confirmation"
     ).load()
-    print(f"df.shape={df.shape}")
+    df_shape = (df.count(), len(df.columns))
+    print(f"df_shape={df_shape}")
 
 
 if __name__ == "__main__":
