@@ -1,0 +1,4 @@
+confirm_number,end_date,guest_id,hotel_id,room_number,start_date
+ff55a54e-edd5-4784-858b-dcb78865920e,2020-10-26,b9c5a9d8-9781-4de8-a00a-601a9cd6b366,ORD,104,2020-10-24
+8cee8a58-0226-497a-a754-624219f7f9cd,2020-07-26,b9c5a9d8-9781-4de8-a00a-601a9cd6b366,SFO-MAR,104,2020-07-24
+4e6e8395-f0cd-4c3f-b690-d06ecf32e72a,2020-06-26,b9c5a9d8-9781-4de8-a00a-601a9cd6b366,SFO-MAR,104,2020-06-24
