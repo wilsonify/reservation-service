@@ -24,3 +24,6 @@ nbdist/
 .nb-gradle/
 
 *.jar
+
+*.egg-info/
+
